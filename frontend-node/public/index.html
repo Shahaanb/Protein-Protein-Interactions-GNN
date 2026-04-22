@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proteome-X (Node UI)</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="https://3Dmol.org/build/3Dmol-min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <div class="brand">
+          <div class="logo">PX</div>
+          <div>
+            <div class="title">Proteome-X</div>
+            <div class="subtitle">Node.js UI (proxying Python backend)</div>
+          </div>
+        </div>
+        <div class="actions">
+          <button id="btnScores" class="btn secondary" type="button">Model Scores</button>
+        </div>
+      </header>
+
+      <section class="card">
+        <h2>Input Parameters</h2>
+        <form id="predictForm" class="form">
+          <label>
+            <span>Receptor (PDB)</span>
+            <input id="pdb1" name="pdb1" placeholder="e.g. 1BRS" maxlength="4" autocomplete="off" />
+          </label>
+          <label>
+            <span>Ligand (PDB)</span>
+            <input id="pdb2" name="pdb2" placeholder="e.g. 1CHO" maxlength="4" autocomplete="off" />
+          </label>
+          <button id="btnPredict" class="btn" type="submit">Run Inference</button>
+        </form>
+        <div id="status" class="status"></div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h3>Interaction Probability</h3>
+          <div id="interactionProbability" class="big">--</div>
+          <div id="inferenceMode" class="muted">--</div>
+        </div>
+        <div class="card">
+          <h3>Evidence Score</h3>
+          <div id="evidenceScore" class="big">--</div>
+          <pre id="evidenceBreakdown" class="pre muted"></pre>
+        </div>
+      </section>
+
+      <section class="card">
+        <h3>Hotspots (top residues)</h3>
+        <div id="hotspots" class="hotspots">--</div>
+      </section>
+
+      <section class="grid">
+        <div class="card">
+          <h3>Structure: Receptor</h3>
+          <div id="viewer1" class="viewer"></div>
+        </div>
+        <div class="card">
+          <h3>Structure: Ligand</h3>
+          <div id="viewer2" class="viewer"></div>
+        </div>
+      </section>
+
+      <section id="scoresModal" class="modal hidden" aria-hidden="true">
+        <div class="modalBackdrop" data-close="true"></div>
+        <div class="modalBody">
+          <div class="modalHeader">
+            <div>
+              <div class="modalTitle">Model Scores</div>
+              <div class="muted">Benchmark-style metrics from a lightweight DB5.5 pass.</div>
+            </div>
+            <div class="modalHeaderActions">
+              <button id="btnRefreshScores" class="btn secondary" type="button">Refresh</button>
+              <button class="btn ghost" type="button" data-close="true">✕</button>
+            </div>
+          </div>
+          <div id="scoresContent" class="scores"></div>
+        </div>
+      </section>
+    </div>
+
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

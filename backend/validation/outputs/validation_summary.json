@@ -1,0 +1,97 @@
+{
+  "generated_at": "2026-04-19T17:44:53Z",
+  "dataset": {
+    "name": "Protein-Protein Docking Benchmark 5.5",
+    "source_url": "https://zlab.wenglab.org/benchmark/",
+    "table_url": "https://zlab.wenglab.org/benchmark/Table_BM5.5.xlsx",
+    "max_positives": 120,
+    "negatives_per_positive": 1
+  },
+  "split": {
+    "strategy": "group_split_by_receptor",
+    "group_key": "pdb1",
+    "train": {
+      "n": 168,
+      "positives": 84,
+      "negatives": 84
+    },
+    "val": {
+      "n": 38,
+      "positives": 19,
+      "negatives": 19
+    },
+    "test": {
+      "n": 34,
+      "positives": 17,
+      "negatives": 17
+    }
+  },
+  "threshold_selection": {
+    "strategy": "maximize_f1_on_val",
+    "threshold": 0.7707999999999999,
+    "val_f1": 0.6666666666666666
+  },
+  "test_metrics": {
+    "threshold": 0.7707999999999999,
+    "accuracy": 0.47058823529411764,
+    "precision": 0.48484848484848486,
+    "recall": 0.9411764705882353,
+    "f1": 0.64,
+    "tp": 16.0,
+    "tn": 0.0,
+    "fp": 17.0,
+    "fn": 1.0,
+    "roc_auc": 0.4463667820069204,
+    "pr_auc": 0.45975605529517793,
+    "brier": 0.3876556479411765,
+    "ece_10": 0.36283235294117644
+  },
+  "test_metrics_ci95": {
+    "accuracy": {
+      "lo": 0.4117647058823529,
+      "hi": 0.5
+    },
+    "precision": {
+      "lo": 0.45161290322580644,
+      "hi": 0.5
+    },
+    "recall": {
+      "lo": 0.8235294117647058,
+      "hi": 1.0
+    },
+    "f1": {
+      "lo": 0.5833333333333333,
+      "hi": 0.6666666666666666
+    },
+    "roc_auc": {
+      "lo": 0.2836505190311419,
+      "hi": 0.6543252595155706
+    },
+    "pr_auc": {
+      "lo": 0.3922061936541308,
+      "hi": 0.6265836975843926
+    },
+    "brier": {
+      "lo": 0.36701948781617644,
+      "hi": 0.4036088813088235
+    },
+    "ece_10": {
+      "lo": 0.346008161764706,
+      "hi": 0.43288147058823523
+    }
+  },
+  "inference": {
+    "modes": {
+      "train": {
+        "onnx": 168
+      },
+      "val": {
+        "onnx": 38
+      },
+      "test": {
+        "onnx": 34
+      }
+    },
+    "used_mock": false
+  }
+}

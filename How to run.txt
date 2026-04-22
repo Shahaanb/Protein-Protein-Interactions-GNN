@@ -1,0 +1,25 @@
+How to run Proteome-X (Windows PowerShell)
+
+1) Start backend
+- Open PowerShell
+- Run:
+cd "c:\Users\shaha\Downloads\protein protein\protein protein\proteome-x\backend"
+.\venv312\Scripts\python.exe -m uvicorn main:app --reload --host 127.0.0.1 --port 8000
+
+2) Start frontend (new PowerShell window)
+- Run:
+cd "c:\Users\shaha\Downloads\protein protein\protein protein\proteome-x\frontend"
+$env:VITE_API_URL = "http://127.0.0.1:8000"
+npm install
+npm run dev -- --host 127.0.0.1 --port 5173
+
+3) Open app
+- Frontend: http://127.0.0.1:5173
+- Backend health check: http://127.0.0.1:8000/health
+
+If port 8000 is busy, stop the old backend process first and run the backend command again.
+
+If required to stop backend do this:
+- Go to the PowerShell window where backend is running and press Ctrl + C
+- If that window is closed, run:
+Get-Process -Name python | Stop-Process -Force

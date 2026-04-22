@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments (do not commit)
+.venv/
+venv/
+venv*/
+backend/venv/
+backend/venv*/
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local artifacts
+*.log
+# Keep validation_summary.json (useful for demo), but ignore the larger debug artifact.
+backend/validation/outputs/validation_results.json
+backend/validation/datasets/

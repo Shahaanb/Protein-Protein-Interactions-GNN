@@ -1,0 +1,12 @@
+Protein-Protein Docking Benchmark 5.5 (free)
+
+Official benchmark landing page:
+https://zlab.wenglab.org/benchmark/
+
+Direct downloads (as linked from the page above):
+- Cleaned-up PDB files archive (tgz): https://zlab.wenglab.org/benchmark/benchmark5.5.tgz
+- Table (xlsx): https://zlab.wenglab.org/benchmark/Table_BM5.5.xlsx
+
+Notes:
+- For this repo’s current demo API (which accepts PDB IDs only, not chains), we extract the first 4-character PDB codes from the table’s “PDBid 1” and “PDBid 2” columns.
+- For scientific evaluation, chain-level identities are preferred; we are intentionally NOT enabling chain-level inputs here to keep the demo UX simple.
